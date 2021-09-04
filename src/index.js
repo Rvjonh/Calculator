@@ -63,7 +63,7 @@ class Calculator extends Component{
 
                   <button className="button" onClick={this.handleAdding} id="add">+</button>
                   <button className="button" onClick={this.handleAdding} id="subtract">-</button>
-                  <button className="button" onClick={this.handleAdding} id="multiply">*</button>
+                  <button className="button" onClick={this.handleAdding} id="multiply">x</button>
                   <button className="button" onClick={this.handleAdding} id="divide">/</button>
 
                   <button className="button" onClick={this.handleAdding} id="decimal">.</button>

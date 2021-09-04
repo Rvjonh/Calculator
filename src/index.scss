@@ -5,7 +5,7 @@ $operations-color: rgb(114, 206, 235);
 $i : 0;
 $shadow : 0 0 rgb(0, 0, 0);
 
-@while $i < 100{
+@while $i < 70{
     $shadow: $shadow , -#{$i}em #{$i}em rgba(0, 0, 0, 0.01);
     $i : $i + 0.1;
 }
