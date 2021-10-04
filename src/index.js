@@ -213,6 +213,7 @@ class Calculator extends Component {
 		expression = expression.replace(/x/g, "*").replace(/‑/g, "-").replace("--", "+0+0+0+0+0+0+");
 		let answer;
 		try{
+			// eslint-disable-next-line
 			answer = Math.round(1000000000000 * eval(expression)) / 1000000000000;
 		}catch{
 			answer = NaN;
