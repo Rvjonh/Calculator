@@ -4,7 +4,7 @@ This is my calculator, which is created to practice the different tecnologies on
 
 ## Live link code 
 
-Check a demo here : 
+Check a demo here :  https://thirsty-bohr-b0fc26.netlify.app/
 
 ## Deployment
 
@@ -53,4 +53,8 @@ Your app is ready to be deployed!
 
 ### `npm run eject`
 
-### `npm run build` fails to minify
+Check react documentation
+
+### `npm run build`
+
+Check react documentation
