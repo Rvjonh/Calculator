@@ -92,7 +92,15 @@ class Calculator extends Component {
 			expresion = expresion === "*" ? "x" : expresion;
 
 			if (!this.state.startedExpresion) {
-				if (expresion === ".") {
+
+				if(parseInt(this.state.result) !== 0){
+					this.setState({
+						startedExpresion: true,
+						lastOperation : this.state.lastOperation + expresion,
+						result : this.state.result + expresion
+					});
+
+				}else if (expresion === ".") {
 					if (!this.state.result.includes(".")) {
 						this.setState({
 							startedExpresion: true,
