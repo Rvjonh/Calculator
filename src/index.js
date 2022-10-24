@@ -158,7 +158,6 @@ class Calculator extends Component {
 							result: expresion,
 						});
 					}else if(/[-]/.test(this.state.lastOperation[this.state.lastOperation.length -1])){
-						console.log("borrado el signo...")
 						this.setState({
 							lastOperation: this.state.lastOperation.slice(0, this.state.lastOperation.length - 2) + expresion,
 							result: expresion,
