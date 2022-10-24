@@ -1,20 +1,27 @@
 ## Simple Calculator
 
-This is my calculator, which is created to practice the different tecnologies on the web, learn more about math operations, and it's a part proyect for freeCodeCamp curriculum.
+This is my calculator, which is created to practice the different tecnologies on the web, learn more about math operations and it's part of the proyects for freeCodeCamp curriculum.
 
 ## Live link code 
 
-Check a demo here :  https://thirsty-bohr-b0fc26.netlify.app/
+Check a demo here :  https://rvjonh-calculator.netlify.app/
 
-## Deployment
+## Development
 
-To deploy you need download this repository, open it and install the "create react app" through Node.js
+If you want to check the code for practice or add more features, here is a step by step guide to run a server where you can work on the code.
 
-* This proyect uses React
-* The repository "Create React app"
-** Learn more about these tecnologies check below 
-* CSS(SCSS) you can use live Live Sass Compiler v3.0.0 or above ^
-* Javascript
+1. you need installed node.js
+2. you will need npm or yard to control the dependencies
+3. you will need git
+4. You will need VS code or and text editor.
+
+## Optional
+  5. Open a terminal o command line interface on you machine, go to desktop or navigate where you want the folder or entire project
+  6. Execute next command: git clone https://github.com/Rvjonh/Calculator.git 
+  7. I recomend install the extension live SASS code to create a CSS file through the SASS pre-processor, this for styling.
+  
+9. and finally I use CRA (Create React App) a package where it's used REACT as framework to build all the functionalities, execute: npm i
+10. happy coding ... :P 
 
 ## Getting Started this proyect
 
