@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
-//symbols allowed in by the calculator "+ - * / .";
+//symbols allowed in the calculator "+ - * / .";
 let symbols = /[/*-+-.]/;
 let numbers = /^[0-9]+$/;
 let endsWithOperator = /[x+‑/]$/;
@@ -17,6 +17,7 @@ class Calculator extends Component {
 			aux: "",
 			lastOperation: "0",
 			result: "0",
+			limitReachState : false
 		};
 	}
 	componentDidMount() {
@@ -25,37 +26,6 @@ class Calculator extends Component {
 	componentWillUnmount() {
 		document.removeEventListener("keydown", this.handlePressing);
 	}
-
-	handleClear = () => {
-		this.setState({
-			startedExpresion: false,
-			aux: "",
-			lastOperation: "0",
-			result: "0",
-		});
-	};
-	handleBackDelete = () => {
-		if (this.state.startedExpresion) {
-			this.setState({
-				lastOperation: this.state.lastOperation.slice(0, this.state.lastOperation.length - 1),
-				result: this.state.result.slice(0, this.state.result.length - 1),
-			});
-
-			if(this.state.lastOperation.length === 0){
-				this.setState({
-					lastOperation: "0"
-				})
-			}			
-			if(this.state.result.length === 0){
-				this.setState({
-					result: "0"
-				})
-			}				
-
-		} else {
-			this.handleClear();
-		}
-	};
 
 	handlePressing = (e) => {
 		//for instruccions
@@ -71,13 +41,49 @@ class Calculator extends Component {
 				break;
 
 			default:
-			//nothing
+				//nothing
 		}
 		//to detect the numbers or the digits
 		if (numbers.test(e.key) || symbols.test(e.key)) {
 			this.handleEvaluate(e.key);
 		}
 	};
+
+
+	handleBackDelete = () => {
+		if (this.state.startedExpresion) {
+			this.setState({
+				lastOperation: this.state.lastOperation.slice(0, this.state.lastOperation.length - 1),
+				result: this.state.result.slice(0, this.state.result.length - 1),
+			});
+
+			if(this.state.lastOperation.length === 0){
+				this.setState({
+					startedExpresion: false,
+					lastOperation: "0"
+				})
+			}			
+			if(this.state.result.length === 0){
+				this.setState({
+					startedExpresion: false,
+					result: "0"
+				})
+			}
+
+		} else {
+			this.handleClear();
+		}
+	};
+
+	handleClear = () => {
+		this.setState({
+			startedExpresion: false,
+			aux: "",
+			lastOperation: "0",
+			result: "0",
+		});
+	};
+
 	handleClicking = (e) => {
 		this.handleEvaluate(e.target.innerHTML);
 	};
@@ -175,17 +181,23 @@ class Calculator extends Component {
 			}
 		}
 	};
-
+	
 	limitReached = () => {
-		this.setState({
-			aux: this.state.lastOperation,
-			lastOperation: "Limit reached",
-		});
-		setTimeout(() => {
+		if(!this.state.limitReachState){
+
 			this.setState({
-				lastOperation: this.state.aux,
+				aux: this.state.lastOperation,
+				lastOperation: "Limit reached",
+				limitReachState : true
 			});
-		}, 1000);
+			setTimeout(() => {
+				this.setState({
+					lastOperation: this.state.aux,
+					limitReachState : false
+				});
+			}, 1000);
+
+		}
 	};
 
 	handleResult = () => {
@@ -200,7 +212,7 @@ class Calculator extends Component {
 				this.setState({
 					startedExpresion : false,
 					lastOperation: this.operate(this.state.lastOperation),
-					result: this.operate(this.state.lastOperation),
+					result : "0"
 				});
 			}
 
