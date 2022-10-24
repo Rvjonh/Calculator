@@ -7,7 +7,7 @@ let symbols = /[/*-+-.]/;
 let numbers = /^[0-9]+$/;
 let endsWithOperator = /[x+‑/]$/;
 
-let limitDigit = 22;
+let limitDigit = 18;
 
 class Calculator extends Component {
 	constructor(props) {
@@ -158,6 +158,7 @@ class Calculator extends Component {
 							result: expresion,
 						});
 					}else if(/[-]/.test(this.state.lastOperation[this.state.lastOperation.length -1])){
+						console.log("borrado el signo...")
 						this.setState({
 							lastOperation: this.state.lastOperation.slice(0, this.state.lastOperation.length - 2) + expresion,
 							result: expresion,
@@ -246,8 +247,8 @@ class Calculator extends Component {
 		return (
 			<div id="calculator">
 				<div className="panel">
-					<p id="formula">{this.state.lastOperation}</p>
-					<p id="display">{this.state.result}</p>
+					<p className="display" id="formula">{this.state.lastOperation}</p>
+					<p className="display" id="display">{this.state.result}</p>
 				</div>
 
 				<div id="board">
